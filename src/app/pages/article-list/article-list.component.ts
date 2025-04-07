@@ -21,7 +21,7 @@ export class ArticleListComponent {
   service: ArticleService = inject(ArticleService);
   links?:Links
   meta?:Meta
-  isLoading: boolean = true;
+
 
   onRefreshPage() {
     this.getAll();

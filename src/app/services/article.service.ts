@@ -53,7 +53,7 @@ export class ArticleService {
 
   async likeArticle(data: { articleId: number }) {
     console.log(data);
-    return fetch(`${this.url}/api/likes`, {
+    return fetch(`${this.url}/api/articles/${data.articleId}/likes`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

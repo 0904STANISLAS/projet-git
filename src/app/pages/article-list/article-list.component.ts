@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {ArticleComponent} from '../article/article.component';
-import {NgClass,NgFor, NgForOf} from '@angular/common';
+import {CommonModule, NgClass,NgFor, NgForOf, NgIf} from '@angular/common';
 import {ArticleService} from '../../services/article.service';
 import {ArticleApi} from '../../models/article-api';
 import {RouterLink} from '@angular/router';
@@ -11,7 +11,7 @@ import { ArtcileVidComponent } from "../artcile-vid/artcile-vid.component";
 
 @Component({
   selector: 'app-article-list',
-  imports: [ArticleComponent, NgFor, RouterLink, NgForOf, NgClass,ArtcileVidComponent],
+  imports: [ArticleComponent, NgFor, RouterLink, NgForOf, NgClass,ArtcileVidComponent, NgIf],
   templateUrl: './article-list.component.html',
   standalone: true,
   styleUrl: './article-list.component.css',
@@ -21,6 +21,7 @@ export class ArticleListComponent {
   service: ArticleService = inject(ArticleService);
   links?:Links
   meta?:Meta
+  isLoading: boolean = true;
 
   onRefreshPage() {
     this.getAll();
